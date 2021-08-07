@@ -1,0 +1,33 @@
+<h2>My Tasks</h2>
+
+<div>
+  <label for="new-task">Task name: </label>
+  <input id="new-task" #taskName />
+
+  <br>
+
+  <label for="new-hero">Task Status</label>
+  <input id="new-hero" #heroName />
+
+  <br>
+
+  <label for="new-hero">Task Progress (In percentage)</label>
+  <input id="new-hero" #heroName />
+
+  <button class="add-button" (click)="add(taskName.value); taskName.value=''">
+    Add task
+  </button>
+
+</div>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button class="delete" title="delete hero"
+            (click)="delete(hero)">
+      x
+    </button>
+  </li>
+</ul>
